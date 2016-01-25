@@ -1,7 +1,7 @@
 import time
 import math
 
-N = 100000
+N = 200000
 
 start = time.time()
 for num in range(1,N+1):
