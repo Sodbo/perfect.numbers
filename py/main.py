@@ -1,10 +1,10 @@
 import time
 import math
 
-N = 200000
-
+N = 1000000
+# Runtime 70.23607802391052
 start = time.time()
-for num in range(1,N+1):
+for num in range(2,N+1):
 	a = 1
 	for num2 in range(2,round(math.sqrt(num))+1):
 		if num % num2 == 0:
