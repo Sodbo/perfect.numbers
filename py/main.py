@@ -1,3 +1,4 @@
+# Now I'm gonna improve performance
 import time
 import math
 
