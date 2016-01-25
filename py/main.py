@@ -1,11 +1,15 @@
 # Now I'm gonna improve performance
+import multiprocessing as mp
 import time
 import math
 
-N = 200000
-
 start = time.time()
-for num in range(1,N+1):
+
+N = 1000000
+
+output = mp.Queue()
+
+def checkPerfectNumber(num):
 	a = 1
 	for num2 in range(2,round(math.sqrt(num))+1):
 		if num % num2 == 0:
@@ -13,6 +17,24 @@ for num in range(1,N+1):
 	if(a==num):
 		print('Perfect number ',num)
 
+for i in range(1,N):
+	checkPerfectNumber(i)
+	
+#processes = [mp.Process(target=checkPerfectNumber, args=(10, output)) for x in range(2)]
+
+# Run processes
+#for p in processes:
+#    p.start()
+
+# Exit the completed processes
+#for p in processes:
+#    p.join()
+
+# Get process results from the output queue
+#results = [output.get() for p in processes]
+
 stop = time.time()
+
+#print(results)
 
 print(stop-start)
