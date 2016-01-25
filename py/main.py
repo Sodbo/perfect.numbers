@@ -1,8 +1,11 @@
+# Now I'm gonna improve performance
 import time
 import math
 
 N = 1000000
 # Runtime 70.23607802391052
+
+>>>>>>> master
 start = time.time()
 for num in range(2,N+1):
 	a = 1
