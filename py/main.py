@@ -5,8 +5,6 @@ import math
 
 start = time.time()
 
-N = 1000000
-
 output = mp.Queue()
 
 def checkPerfectNumber(num, output):
