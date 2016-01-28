@@ -2,39 +2,29 @@
 import multiprocessing as mp
 import time
 import math
+import string
+import Queue
+
+N=34000000
+# Runtime 8 seconds
 
 start = time.time()
 
-N = 1000000
+def checkPerfectNumber(numlow,numup):
+	result = []
+	for num in range(numlow,numup+1):
+		a = 1
+		for num2 in range(2,int(round(math.sqrt(num)))+1):
+			if num % num2 == 0:
+				a = a+num2+num//num2
+		if(a==num):
+			result = result + [num]
+	return result
 
-output = mp.Queue()
-
-def checkPerfectNumber(num, output):
-	a = 1
-	for num2 in range(2,round(math.sqrt(num))+1):
-		if num % num2 == 0:
-			a = a+num2+num//num2
-	if(a==num):
-		output.put(num)
-
-#for i in range(1,N):
-#	checkPerfectNumber(i)
-	
-processes = [mp.Process(target=checkPerfectNumber, args=(10, output)) for x in range(2)]
-
-# Run processes
-for p in processes:
-	p.start()
-
-# Exit the completed processes
-for p in processes:
-    p.join()
-
-# Get process results from the output queue
-results = [output.get() for p in processes]
+pool = mp.Pool(processes=4)
+results = [pool.apply_async(checkPerfectNumber, args=(x*1000+1,x*1000+1000)) for x in range(0,int(N/1000))]
+output = [p.get() for p in results]
+print(output)
 
 stop = time.time()
-
-print(results)
-
 print(stop-start)
