@@ -5,7 +5,7 @@ import math
 import string
 import Queue
 
-N=34000000
+N=2000000
 # Runtime 8 seconds
 
 start = time.time()
