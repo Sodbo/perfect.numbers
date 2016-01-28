@@ -1,6 +1,9 @@
 # include <iostream>
 # include <math.h>
 
+// Runtime HZM ubuntu
+// Runtime 15.571s laptop
+
 int main(int argc, char* argv[]){
 
 	int N = 2000000;
