@@ -2,7 +2,7 @@
 import time
 import math
 
-N = 1000000
+N = 2000000
 # Runtime 47.429256916
 
 start = time.time()
