@@ -3,7 +3,8 @@ import time
 import math
 
 N = 2000000
-# Runtime 47.429256916
+# Runtime 120 HZM ubuntu
+# Run time 223.300662994 sec laptop
 
 start = time.time()
 for num in range(2,N+1):
